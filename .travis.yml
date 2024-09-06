@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t abhiraj141/learn-travis -f Dockerfile.dev .
+
+script:
+  - docker run abhiraj141/learn-travis npm run dev -- --coverage
